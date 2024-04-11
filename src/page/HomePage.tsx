@@ -11,8 +11,10 @@ import { ChevronLeftIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 
 export default function Home() {
+  const [isCardSelected, setIsCardSelected] = useState(false);
+
   const pages: React.ReactNode[] = [
-    <UserProfile />,
+    <UserProfile onCardSelection={setIsCardSelected} />,
     <Interest />,
     <Info />,
     <Select />,
@@ -62,8 +64,16 @@ export default function Home() {
 
         {pages[currentPageIndex]}
 
-        <div className="">
-          <Button onClick={handlePageChange}>Continue</Button>
+        <div className="mt-5">
+          <Button
+            onClick={handlePageChange}
+            className={`px-10 py-6 text-xl ${
+              !isCardSelected ? "opacity-50 cursor-not-allowed" : "" 
+            }`}
+            disabled={!isCardSelected} 
+          >
+            Continue
+          </Button>
         </div>
       </div>
     </>
