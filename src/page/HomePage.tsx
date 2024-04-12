@@ -15,7 +15,7 @@ export default function Home() {
 
   const pages: React.ReactNode[] = [
     <UserProfile onCardSelection={setIsCardSelected} />,
-    <Interest />,
+    <Interest onCardSelection={setIsCardSelected} />,
     <Info />,
     <Select />,
     <Quote />,
@@ -68,9 +68,9 @@ export default function Home() {
           <Button
             onClick={handlePageChange}
             className={`px-10 py-6 text-xl ${
-              !isCardSelected ? "opacity-50 cursor-not-allowed" : "" 
+              !isCardSelected ? "opacity-50 cursor-not-allowed" : ""
             }`}
-            disabled={!isCardSelected} 
+            disabled={!isCardSelected}
           >
             Continue
           </Button>
